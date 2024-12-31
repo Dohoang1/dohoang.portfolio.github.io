@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đỗ Văn Hoàng - Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0ea5e9',
+                        dark: '#0f172a',
+                    },
+                    fontFamily: {
+                        poppins: ['Poppins', 'sans-serif'],
+                        merriweather: ['Merriweather', 'serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        .gradient-text {
+            background: linear-gradient(to right, #0ea5e9, #3b82f6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .project-card {
+            transition: all 0.3s ease;
+        }
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        .project-image {
+            transition: all 0.3s ease;
+        }
+        .project-card:hover .project-image {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navbar -->
+    <nav class="fixed w-full bg-white shadow-sm z-50">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <a href="#" class="text-2xl font-bold gradient-text">Đỗ Văn Hoàng</a>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#about" class="text-gray-600 hover:text-primary">Giới thiệu</a>
+                    <a href="#skills" class="text-gray-600 hover:text-primary">Kỹ năng</a>
+                    <a href="#projects" class="text-gray-600 hover:text-primary">Dự án</a>
+                    <a href="#contact" class="text-gray-600 hover:text-primary">Liên hệ</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-32 pb-20 bg-gradient-to-b from-white to-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center justify-between">
+                <div class="md:w-1/2 mb-10 md:mb-0">
+                    <h1 class="text-4xl md:text-6xl font-bold mb-6">
+                        <span class="gradient-text">Java Developer</span>
+                    </h1>
+                    <p class="text-gray-600 text-lg mb-8">
+                        Xin chào! Tôi là Đỗ Văn Hoàng, một Java Developer với niềm đam mê phát triển phần mềm và giải quyết vấn đề.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#contact" class="bg-primary text-white px-8 py-3 rounded-lg hover:bg-blue-600 transition">
+                            Liên hệ
+                        </a>
+                        <a href="#projects" class="border-2 border-primary text-primary px-8 py-3 rounded-lg hover:bg-primary hover:text-white transition">
+                            Dự án
+                        </a>
+                    </div>
+                </div>
+                <div class="md:w-1/2 flex justify-center">
+                    <img src="images/img1.png" alt="Đỗ Văn Hoàng" class="w-64 h-64 rounded-full object-cover border-4 border-primary shadow-lg">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold mb-12 text-center"> <span class="gradient-text"> Về Tôi</span></h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white p-6 rounded-lg shadow-lg text-center">
+                    <div class="text-4xl font-bold text-primary mb-2">1+</div>
+                    <div class="text-gray-600">Năm kinh nghiệm</div>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-lg text-center">
+                    <div class="text-4xl font-bold text-primary mb-2">5+</div>
+                    <div class="text-gray-600">Dự án hoàn thành</div>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-lg text-center">
+                    <div class="text-4xl font-bold text-primary mb-2">3+</div>
+                    <div class="text-gray-600">Chứng chỉ</div>
+                </div>
+            </div>
+            <div class="mt-12">
+                <p class="text-gray-600 leading-relaxed text-center max-w-3xl mx-auto">
+                    Phát triển thành một Senior Developer thông thạo Java, ReactJS và MySQL, có khả năng làm việc độc lập trong môi trường outsourcing quốc tế, đồng thời không ngừng nâng cao kỹ năng chuyên môn để đảm nhận các dự án có tính thách thức cao, hướng đến vị trí Technical Lead trong tương lai.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold mb-12 text-center"><span class="gradient-text">Kỹ Năng</span></h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white p-6 rounded-lg shadow-lg">
+                    <h3 class="text-xl font-semibold mb-4">Backend Development</h3>
+                    <div class="space-y-3">
+                        <div class="flex items-center">
+                            <div class="w-32">Java</div>
+                            <i class="fas fa-check-circle text-primary"></i>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-32">Spring Boot</div>
+                            <i class="fas fa-check-circle text-primary"></i>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-32">MySQL</div>
+                            <i class="fas fa-check-circle text-primary"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-lg">
+                    <h3 class="text-xl font-semibold mb-4">Frontend Development</h3>
+                    <div class="space-y-3">
+                        <div class="flex items-center">
+                            <div class="w-32">HTML/CSS</div>
+                            <i class="fas fa-check-circle text-primary"></i>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-32">JavaScript</div>
+                            <i class="fas fa-check-circle text-primary"></i>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-32">ReactJS</div>
+                            <i class="fas fa-check-circle text-primary"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-lg">
+                    <h3 class="text-xl font-semibold mb-4">Other Skills</h3>
+                    <div class="space-y-3">
+                        <div class="flex items-center">
+                            <div class="w-32">Git</div>
+                            <i class="fas fa-check-circle text-primary"></i>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-32">Scrum</div>
+                            <i class="fas fa-check-circle text-primary"></i>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-32">English</div>
+                            <i class="fas fa-check-circle text-primary"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold mb-12 text-center"><span class="gradient-text">Dự Án</span></h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Game Hứng Bia -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden project-card">
+                    <div class="overflow-hidden">
+                        <img src="images/game_hung_bia.png" alt="Game Hứng Bia" class="w-full h-48 object-cover project-image">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Game Hứng Bia</h3>
+                        <p class="text-gray-600 mb-4">Trò chơi bắt chai bia được phát triển bằng JavaScript và OOP</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-sm">HTML</span>
+                            <span class="px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-sm">CSS</span>
+                            <span class="px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-sm">JavaScript</span>
+                            <span class="px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-sm">Canvas</span>
+                        </div>
+                        <div class="flex space-x-4">
+                            <a href="https://hungbiabydohoang.netlify.app/" class="text-primary hover:text-blue-700" target="_blank">
+                                <i class="fas fa-external-link-alt"></i> Demo
+                            </a>
+                            <a href="https://github.com/Dohoang1/game_hung_bia" class="text-primary hover:text-blue-700" target="_blank">
+                                <i class="fab fa-github"></i> GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- VGAKING -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden project-card">
+                    <div class="overflow-hidden">
+                        <img src="images/vgaking.png" alt="VGAKING" class="w-full h-48 object-cover project-image">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">E-Commerce VGAKING</h3>
+                        <p class="text-gray-600 mb-4">Web App ecommerce với đầy đủ tính năng quản lý và bán hàng</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-sm">Spring Boot</span>
+                            <span class="px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-sm">MySQL</span>
+                            <span class="px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-sm">Thymeleaf</span>
+                        </div>
+                        <div class="flex space-x-4">
+                            <a href="https://vgaking-4ae73816ae94.herokuapp.com/products" class="text-primary hover:text-blue-700" target="_blank">
+                                <i class="fas fa-external-link-alt"></i> Demo
+                            </a>
+                            <a href="https://github.com/Dohoang1/ecomert_reup" class="text-primary hover:text-blue-700" target="_blank">
+                                <i class="fab fa-github"></i> GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- UniTrade -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden project-card">
+                    <div class="overflow-hidden">
+                        <img src="images/unitrade.png" alt="UniTrade" class="w-full h-48 object-cover project-image">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">E-Commerce UniTrade</h3>
+                        <p class="text-gray-600 mb-4">Modern e-commerce platform với Spring Boot và ReactJS</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-sm">Spring Boot</span>
+                            <span class="px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-sm">ReactJS</span>
+                            <span class="px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-sm">JWT</span>
+                        </div>
+                        <div class="flex space-x-4">
+                            <a href="https://github.com/Dohoang1/MD6-final-BE" class="text-primary hover:text-blue-700" target="_blank">
+                                <i class="fab fa-github"></i> Backend
+                            </a>
+                            <a href="https://github.com/Dohoang1/MD6-final-FE" class="text-primary hover:text-blue-700" target="_blank">
+                                <i class="fab fa-github"></i> Frontend
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold mb-12 text-center"><span class="gradient-text">Liên Hệ</span></h2>
+            <div class="max-w-4xl mx-auto">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="bg-white p-6 rounded-lg shadow-lg">
+                        <h3 class="text-xl font-semibold mb-4">Thông tin liên hệ</h3>
+                        <div class="space-y-4">
+                            <div class="flex items-center">
+                                <i class="fas fa-phone text-primary w-8"></i>
+                                <a href="tel:0389368698" class="text-gray-600 hover:text-primary">0389368698</a>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-map-marker-alt text-primary w-8"></i>
+                                <span class="text-gray-600">Tây Mỗ – Nam Từ Liêm – Hà Nội</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-calendar text-primary w-8"></i>
+                                <span class="text-gray-600">08-09-1997</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-lg">
+                        <h3 class="text-xl font-semibold mb-4">Mạng xã hội</h3>
+                        <div class="flex space-x-4">
+                            <a href="#" class="text-primary hover:text-blue-700 text-2xl">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="#" class="text-primary hover:text-blue-700 text-2xl">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                            <a href="#" class="text-primary hover:text-blue-700 text-2xl">
+                                <i class="fab fa-facebook"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-8">
+        <div class="container mx-auto px-4 text-center">
+            <p> 2024 Đỗ Văn Hoàng. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Scroll to top button -->
+    <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" 
+            class="fixed bottom-8 right-8 bg-primary text-white w-12 h-12 rounded-full shadow-lg flex items-center justify-center hover:bg-blue-600 transition">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+</body>
+</html>
