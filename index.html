@@ -4,26 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Đỗ Văn Hoàng - Portfolio</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- CSS Dependencies -->
+    <link href="./dist/output.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        primary: '#0ea5e9',
-                        dark: '#0f172a',
-                    },
-                    fontFamily: {
-                        poppins: ['Poppins', 'sans-serif'],
-                        merriweather: ['Merriweather', 'serif'],
-                    },
-                }
-            }
-        }
-    </script>
-    <style>
+    
+    <!-- GSAP Dependencies -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    
+    <style type="text/css">
         body {
             font-family: 'Poppins', sans-serif;
         }
@@ -31,6 +22,7 @@
             background: linear-gradient(to right, #0ea5e9, #3b82f6);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            color: #0ea5e9; /* Fallback color */
         }
         .project-card {
             transition: all 0.3s ease;
@@ -45,7 +37,97 @@
         .project-card:hover .project-image {
             transform: scale(1.05);
         }
+        
+        /* Animation styles */
+        .split-text {
+            display: inline-block;
+            background: linear-gradient(to right, #0ea5e9, #3b82f6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            color: #0ea5e9; /* Fallback color */
+        }
+        .split-text span {
+            display: inline-block;
+            opacity: 0;
+            transform: translateY(50px);
+            background: inherit;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            color: #0ea5e9; /* Fallback color */
+        }
+        .split-text span.char {
+            opacity: 0;
+            transform: translateY(50px);
+            background: inherit;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            color: #0ea5e9; /* Fallback color */
+        }
     </style>
+    
+    <script>
+        // Đăng ký ScrollTrigger plugin
+        gsap.registerPlugin(ScrollTrigger);
+        
+        // Hàm tách văn bản
+        function splitText(element) {
+            const text = element.textContent.trim();
+            element.textContent = '';
+            
+            const chars = [...text].map(char => {
+                if (char === ' ') {
+                    element.appendChild(document.createTextNode(' '));
+                    return null;
+                }
+                const span = document.createElement('span');
+                span.textContent = char;
+                span.style.display = 'inline-block';
+                span.style.opacity = '0';
+                span.style.transform = 'translateY(50px)';
+                element.appendChild(span);
+                return span;
+            }).filter(Boolean);
+
+            return chars;
+        }
+
+        // Khởi tạo animation
+        function initAnimations() {
+            // Hero animation
+            const heroElement = document.querySelector('[data-animation="hero"]');
+            if (heroElement) {
+                const chars = splitText(heroElement);
+                gsap.to(chars, {
+                    y: 0,
+                    opacity: 1,
+                    duration: 0.8,
+                    stagger: 0.05,
+                    ease: "back.out(1.7)",
+                    delay: 0.5
+                });
+            }
+
+            // Section titles animation
+            const sectionElements = document.querySelectorAll('[data-animation="section"]');
+            sectionElements.forEach(element => {
+                const chars = splitText(element);
+                gsap.to(chars, {
+                    scrollTrigger: {
+                        trigger: element,
+                        start: "top 80%",
+                    },
+                    y: 0,
+                    opacity: 1,
+                    duration: 0.5,
+                    stagger: 0.02,
+                    ease: "back.out(1.7)"
+                });
+            });
+        }
+
+        // Đợi cho tất cả resources load xong
+        window.addEventListener('load', initAnimations);
+    </script>
 </head>
 <body class="bg-gray-50">
     <!-- Navbar -->
@@ -69,7 +151,7 @@
             <div class="flex flex-col md:flex-row items-center justify-between">
                 <div class="md:w-1/2 mb-10 md:mb-0">
                     <h1 class="text-4xl md:text-6xl font-bold mb-6">
-                        <span class="gradient-text">FullStack Developer</span>
+                        <span class="gradient-text split-text" data-animation="hero">FullStack Developer</span>
                     </h1>
                     <p class="text-gray-600 text-lg mb-8">
                         Xin chào! Tôi là Đỗ Văn Hoàng, một FullStack Developer với niềm đam mê phát triển phần mềm và giải quyết vấn đề.
@@ -93,7 +175,9 @@
     <!-- About Section -->
     <section id="about" class="py-20 bg-white">
         <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold mb-12 text-center"> <span class="gradient-text"> Về Tôi</span></h2>
+            <h2 class="text-3xl font-bold mb-12 text-center">
+                <span class="gradient-text split-text" data-animation="section">Về Tôi</span>
+            </h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <div class="bg-white p-6 rounded-lg shadow-lg text-center">
                     <div class="text-4xl font-bold text-primary mb-2">1+</div>
@@ -110,7 +194,7 @@
             </div>
             <div class="mt-12">
                 <p class="text-gray-600 leading-relaxed text-center max-w-3xl mx-auto">
-                    Phát triển thành một Senior Developer thông thạo Java, ReactJS và MySQL, có khả năng làm việc độc lập trong môi trường outsourcing quốc tế, đồng thời không ngừng nâng cao kỹ năng chuyên môn để đảm nhận các dự án có tính thách thức cao, hướng đến vị trí Technical Lead trong tương lai.
+                    Phát triển thành một Senior Developer thông thạo Java, ReactJS và MySQL, có khả năng làm việc độc lập trong môi trường outsourcing quốc tế, đồng thầm không ngừng nâng cao kỹ năng chuyên môn để đảm nhận các dự án có tính thách thức cao, hướng đến vị trí Technical Lead trong tương lai.
                 </p>
             </div>
         </div>
@@ -119,7 +203,9 @@
     <!-- Skills Section -->
     <section id="skills" class="py-20 bg-gray-50">
         <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold mb-12 text-center"><span class="gradient-text">Kỹ Năng</span></h2>
+            <h2 class="text-3xl font-bold mb-12 text-center">
+                <span class="gradient-text split-text" data-animation="section">Kỹ Năng</span>
+            </h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <div class="bg-white p-6 rounded-lg shadow-lg">
                     <h3 class="text-xl font-semibold mb-4">Backend Development</h3>
@@ -206,7 +292,9 @@
     <!-- Projects Section -->
     <section id="projects" class="py-20 bg-white">
         <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold mb-12 text-center"><span class="gradient-text">Dự Án Cá Nhân</span></h2>
+            <h2 class="text-3xl font-bold mb-12 text-center">
+                <span class="gradient-text split-text" data-animation="section">Dự Án Cá Nhân</span>
+            </h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Game Hứng Bia -->
                 <div class="bg-white rounded-lg shadow-lg overflow-hidden project-card">
@@ -287,7 +375,9 @@
     <!-- Contact Section -->
     <section id="contact" class="py-20 bg-gray-50">
         <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold mb-12 text-center"><span class="gradient-text">Liên Hệ</span></h2>
+            <h2 class="text-3xl font-bold mb-12 text-center">
+                <span class="gradient-text split-text" data-animation="section">Liên Hệ</span>
+            </h2>
             <div class="max-w-4xl mx-auto">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                     <div class="bg-white p-6 rounded-lg shadow-lg">

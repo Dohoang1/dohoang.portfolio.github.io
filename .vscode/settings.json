@@ -1,0 +1,14 @@
+{
+    "liveServer.settings.CustomBrowser": "chrome",
+    "liveServer.settings.useLocalIp": true,
+    "liveServer.settings.NoBrowser": false,
+    "liveServer.settings.ignoreFiles": [
+        ".vscode/**",
+        "**/*.scss",
+        "**/*.sass",
+        "**/*.ts"
+    ],
+    "liveServer.settings.mount": [
+        ["/dist", "./dist"]
+    ]
+}
