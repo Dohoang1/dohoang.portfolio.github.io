@@ -1,0 +1,980 @@
+# CÂU HỎI VÀ TRẢ LỜI VỀ LẬP TRÌNH JAVA
+
+## 1. Các kiểu dữ liệu trong Java
+
+### Câu hỏi:
+Có mấy loại kiểu dữ liệu trong Java? Liệt kê chi tiết đặc điểm và lớp bao của chúng?
+
+### Trả lời:
+Java có 2 nhóm kiểu dữ liệu chính:
+
+1. Kiểu dữ liệu nguyên thủy (Primitive):
+- byte: 8 bit (-128 đến 127), Lớp bao: Byte
+- short: 16 bit (-32,768 đến 32,767), Lớp bao: Short
+- int: 32 bit (-2^31 đến 2^31-1), Lớp bao: Integer
+- long: 64 bit (-2^63 đến 2^63-1), Lớp bao: Long
+- float: 32 bit (số thực), Lớp bao: Float
+- double: 64 bit (số thực), Lớp bao: Double
+- boolean: 1 bit (true/false), Lớp bao: Boolean
+- char: 16 bit (ký tự Unicode), Lớp bao: Character
+
+2. Kiểu dữ liệu tham chiếu (Reference):
+- Mảng (Array)
+- Lớp (Class)
+- Giao diện (Interface)
+- Enum
+
+## 2. Phân biệt các khái niệm cơ bản
+
+### Câu hỏi:
+Phân biệt biến, hàm, đối tượng, lớp, giá trị, tham chiếu, tham trị? Chúng gồm những thành phần gì?
+
+### Trả lời:
+
+1. Biến:
+- Là vùng nhớ để lưu trữ dữ liệu
+- Gồm: tên biến, kiểu dữ liệu, giá trị
+- Có thể là biến cục bộ, biến toàn cục, biến tĩnh
+
+2. Hàm (Phương thức):
+- Là một khối mã thực hiện một chức năng cụ thể
+- Gồm: tên hàm, kiểu trả về, tham số, thân hàm
+- Có thể là static hoặc non-static
+
+3. Đối tượng:
+- Là thể hiện cụ thể của một lớp
+- Gồm: thuộc tính và phương thức
+- Được tạo ra bằng từ khóa new
+
+4. Lớp:
+- Là bản thiết kế cho đối tượng
+- Gồm: thuộc tính, phương thức, constructor
+- Định nghĩa các đặc điểm và hành vi của đối tượng
+
+5. Tham trị vs Tham chiếu:
+- Tham trị: truyền giá trị thực (áp dụng cho kiểu nguyên thủy)
+- Tham chiếu: truyền địa chỉ ô nhớ (áp dụng cho đối tượng)
+
+## 3. Static và Non-static
+
+### Câu hỏi:
+Hàm static và hàm non-static khác nhau như thế nào? Static có kế thừa không? Vì sao?
+
+### Trả lời:
+
+1. Hàm Static:
+- Thuộc về lớp, không cần tạo đối tượng để gọi
+- Chỉ có thể truy cập thành viên static khác
+- Không thể sử dụng từ khóa this
+- Không được kế thừa vì static gắn với lớp cụ thể
+
+2. Hàm Non-static:
+- Thuộc về đối tượng
+- Có thể truy cập mọi thành viên của lớp
+- Có thể sử dụng từ khóa this
+- Được kế thừa bình thường
+
+## 4. Cấu trúc điều kiện
+
+### Câu hỏi:
+Liệt kê các cấu trúc điều kiện và sử dụng khi nào?
+
+### Trả lời:
+
+1. if-else:
+- Sử dụng khi cần kiểm tra một điều kiện đơn giản
+- Thực hiện các lệnh khác nhau tùy theo điều kiện đúng/sai
+
+2. switch-case:
+- Sử dụng khi cần so sánh một biến với nhiều giá trị
+- Thích hợp cho các trường hợp có nhiều nhánh rẽ cụ thể
+
+3. toán tử điều kiện (?:):
+- Sử dụng cho các điều kiện đơn giản
+- Thay thế if-else ngắn gọn
+
+## 5. Stack và Heap
+
+### Câu hỏi:
+Phân biệt Stack và Heap? String Pool là gì?
+
+### Trả lời:
+
+1. Stack:
+- Lưu trữ biến cục bộ và tham chiếu
+- Quản lý bộ nhớ tự động
+- Truy cập nhanh hơn Heap
+- Kích thước cố định
+
+2. Heap:
+- Lưu trữ đối tượng
+- Quản lý bộ nhớ thông qua Garbage Collection
+- Kích thước linh hoạt
+- Truy cập chậm hơn Stack
+
+3. String Pool:
+- Vùng nhớ đặc biệt trong Heap
+- Lưu trữ các chuỗi không trùng lặp (String literal)
+- Tối ưu hóa bộ nhớ cho chuỗi
+- Được quản lý bởi JVM
+
+## 6. Phạm vi truy cập
+
+### Câu hỏi:
+Liệt kê các phạm vi truy cập và hay sử dụng chúng ở đâu?
+
+### Trả lời:
+
+1. public:
+- Truy cập từ mọi nơi
+- Sử dụng cho giao diện công khai của lớp
+
+2. protected:
+- Truy cập trong cùng gói và lớp con
+- Sử dụng cho thành phần cần kế thừa
+
+3. default (package-private):
+- Truy cập trong cùng gói
+- Sử dụng cho thành phần nội bộ gói
+
+4. private:
+- Chỉ truy cập trong cùng lớp
+- Sử dụng cho thành phần nội bộ lớp
+
+## 7. OOP và OAP
+
+### Câu hỏi:
+OOP và OAP là gì, chúng bao gồm những gì?
+
+### Trả lời:
+
+1. OOP (Lập trình hướng đối tượng):
+- Tính đóng gói (Encapsulation):
+    + Che giấu dữ liệu bằng private
+    + Sử dụng getter/setter
+    + Bảo vệ dữ liệu và kiểm soát truy cập
+- Tính kế thừa (Inheritance):
+    + Cho phép class con kế thừa từ class cha
+    + Tái sử dụng code
+    + Mở rộng chức năng
+- Tính đa hình (Polymorphism):
+    #### Nạp chồng (Overloading)
+    + Cùng tên, khác tham số
+    + Xác định tại compile-time
+    + Compiler quyết định phương thức được gọi dựa vào tham số
+    #### Ghi đè (Overriding)
+    + Con định nghĩa lại phương thức của cha
+    + Xác định tại runtime
+    + Quyết định dựa trên kiểu đối tượng tại thời điểm chạy
+- Tính trừu tượng
+    #### Abstract Class
+    - Đặc điểm:
+    + Khai báo với từ khóa abstract
+    + Có cả phương thức abstract và non-abstract
+    + Có thể có constructor, thuộc tính
+    + Một class chỉ kế thừa một abstract class
+    - Khi nào sử dụng:
+    + Các class con có nhiều đặc điểm chung
+    + Chia sẻ code giữa nhiều class liên quan
+    + Cần phương thức protected/private
+    + Cần khai báo non-static/non-final fields
+    #### Interface
+    - Đặc điểm:
+    + Phương thức mặc định là public abstract
+    + Thuộc tính mặc định là public static final
+    + Không có constructor
+    + Một class có thể implement nhiều interface
+    + Từ Java 8: có default và static methods
+    - Khi nào sử dụng:
+    + Định nghĩa contract cho nhiều class không liên quan
+    + Cần đa kế thừa
+    + Định nghĩa hành vi chung
+    + Tách biệt interface và implementation
+
+
+2. OAP (Lập trình hướng khía cạnh):
+- Tách biệt các quan tâm chéo
+- Aspect (Khía cạnh)
+- Join point (Điểm kết nối)
+- Advice (Lời khuyên)
+- Pointcut (Điểm cắt)
+
+## 8. SOLID
+
+### Câu hỏi:
+SOLID là gì, chi tiết từng nguyên lý?
+
+### Trả lời:
+
+1. S (Single Responsibility) - Nguyên lý đơn trách nhiệm, :
+- Một lớp chỉ nên có một lý do để thay đổi
+- Mỗi lớp chỉ nên đảm nhiệm một chức năng
+
+2. O (Open-Closed) - Nguyên lý mở/đóng:
+- Có thể mở rộng nhưng không được sửa đổi
+- Sử dụng kế thừa và giao diện
+
+3. L (Liskov Substitution) - Nguyên lý thay thế Liskov:
+- Lớp con phải thay thế được lớp cha mà không gây ra lỗi, không vi phạm ràng buộc của lớp cha
+- Đảm bảo tính nhất quán
+
+4. I (Interface Segregation) - Nguyên lý phân tách giao diện:
+- Nhiều giao diện nhỏ tốt hơn một giao diện lớn
+- Tách biệt các chức năng
+
+5. D (Dependency Inversion) - Nguyên lý đảo ngược phụ thuộc:
+- Module cấp cao không phụ thuộc cấp thấp
+- Phụ thuộc vào trừu tượng, không phụ thuộc vào cụ thể
+- Sử dụng interface và abstract class
+- Sử dụng Dependency Injection
+
+## 9. Mảng và Collection
+
+### Câu hỏi:
+Mảng và các collection phổ biến, liệt kê chi tiết, sử dụng khi nào?
+
+### Trả lời:
+
+1. Mảng:
+- Kích thước cố định
+- Truy cập nhanh theo chỉ số O(1)
+- Sử dụng khi số lượng phần tử cố định
+- Kiểu dữ liệu đồng nhất
+
+2. List:
+- ArrayList: 
+    + Mảng động, có thể thay đổi kích thước
+    + Truy cập nhanh O(1)
+    + Thêm/xóa cuối O(1)
+    + Thêm/xóa đầu/giữa O(n)
+    + Sử dụng khi cần truy cập ngẫu nhiên nhiều
+
+- LinkedList:
+    + Danh sách liên kết đôi
+    + Truy cập O(n)
+    + Thêm/xóa đầu/cuối O(1)
+    + Thêm/xóa giữa O(n)
+    + Sử dụng khi cần thêm/xóa đầu cuối nhiều
+
+3. Set:
+- HashSet:
+    + Không trùng lặp, không thứ tự
+    + Thêm/xóa/tìm kiếm O(1)
+    + Dùng hashCode() và equals()
+    + Sử dụng khi cần loại bỏ trùng lặp
+
+- TreeSet:
+    + Không trùng lặp, có thứ tự
+    + Thêm/xóa/tìm kiếm O(log n)
+    + Implement SortedSet interface
+    + Sử dụng khi cần dữ liệu được sắp xếp
+
+- LinkedHashSet:
+    + Không trùng lặp, giữ thứ tự thêm vào
+    + Thêm/xóa/tìm kiếm O(1)
+    + Kết hợp HashSet và LinkedList
+    + Sử dụng khi cần loại bỏ trùng lặp và giữ thứ tự
+
+4. Map:
+- HashMap:
+    + Key-value, không thứ tự
+    + Thêm/xóa/tìm kiếm O(1)
+    + Cho phép null key và null value
+    + Sử dụng khi cần lưu trữ cặp key-value
+
+- TreeMap:
+    + Key-value, có thứ tự theo key
+    + Thêm/xóa/tìm kiếm O(log n)
+    + Không cho phép null key
+    + Sử dụng khi cần key được sắp xếp
+
+- LinkedHashMap:
+    + Key-value, giữ thứ tự thêm vào
+    + Thêm/xóa/tìm kiếm O(1)
+    + Kết hợp HashMap và LinkedList
+    + Sử dụng khi cần giữ thứ tự thêm vào
+
+## 10. Thuật toán tìm kiếm
+
+### Câu hỏi:
+Liệt kê các thuật toán tìm kiếm, sử dụng khi nào?
+
+### Trả lời:
+
+1. Tìm kiếm tuyến tính (Linear Search):
+- Độ phức tạp O(n)
+- Dùng cho dữ liệu nhỏ, không sắp xếp
+
+2. Tìm kiếm nhị phân (Binary Search):
+- Độ phức tạp O(log n)
+- Dùng cho dữ liệu đã sắp xếp
+
+3. Tìm kiếm nhảy (Jump Search):
+- Độ phức tạp O(√n)
+- Dùng cho dữ liệu đã sắp xếp
+
+## 11. Thuật toán sắp xếp
+
+### Câu hỏi:
+Liệt kê các thuật toán sắp xếp, sử dụng khi nào?
+
+### Trả lời:
+
+1. Sắp xếp nổi bọt (Bubble Sort):
+- Độ phức tạp O(n²)
+- Dùng cho dữ liệu nhỏ, đơn giản
+
+2. Sắp xếp chọn (Selection Sort):
+- Độ phức tạp O(n²)
+- Dùng cho dữ liệu nhỏ, ít hoán đổi
+
+3. Sắp xếp chèn (Insertion Sort):
+- Độ phức tạp O(n²)
+- Dùng cho dữ liệu gần như đã sắp xếp
+
+4. Sắp xếp nhanh (Quick Sort):
+- Độ phức tạp O(n log n)
+- Dùng cho dữ liệu lớn, hiệu quả
+
+5. Sắp xếp trộn (Merge Sort):
+- Độ phức tạp O(n log n)
+- Dùng cho dữ liệu lớn, ổn định
+
+## 12. Xử lý ngoại lệ
+
+### Câu hỏi:
+Cần xử lý ngoại lệ khi nào? Các đặc điểm của ngoại lệ trong Java? Phân biệt throw và throws?
+
+### Trả lời:
+
+1. Khi nào cần xử lý:
+- Thao tác với tệp tin (đọc/ghi file)
+- Kết nối mạng (network, socket)
+- Truy cập cơ sở dữ liệu (database)
+- Chuyển đổi kiểu dữ liệu không hợp lệ
+- Truy cập mảng vượt quá giới hạn
+- Chia cho số 0
+- Truy cập đối tượng null
+
+2. Đặc điểm:
+- Checked Exception: 
+    + Bắt buộc phải xử lý
+    + Xảy ra tại compile time
+    + Ví dụ: IOException, SQLException
+- Unchecked Exception: 
+    + Không bắt buộc xử lý
+    + Xảy ra tại run time
+    + Ví dụ: NullPointerException, ArrayIndexOutOfBoundsException
+- Error: 
+    + Lỗi hệ thống nghiêm trọng
+    + Không nên cố gắng bắt
+    + Ví dụ: OutOfMemoryError, StackOverflowError
+
+3. Cấu trúc xử lý:
+- try-catch: Xử lý ngoại lệ cơ bản
+- try-catch-finally: Đảm bảo code luôn được thực thi
+- try-with-resources: Tự động đóng tài nguyên
+
+4. Phân biệt throw và throws:
+- throw:
+    + Ném ra một ngoại lệ cụ thể
+    + Sử dụng trong method
+    + Chỉ ném được một ngoại lệ
+    + Ví dụ: throw new NullPointerException("Lỗi null");
+
+- throws:
+    + Khai báo ngoại lệ có thể xảy ra
+    + Đặt trong signature của method
+    + Có thể khai báo nhiều ngoại lệ
+    + Ví dụ: public void method() throws IOException, SQLException
+
+## 13. Debug
+
+### Câu hỏi:
+Quy trình xử lý debug chuyên nghiệp? Các công cụ và kỹ thuật debug cần có?
+
+### Trả lời:
+
+1. Quy trình debug:
+- Tái hiện lỗi (thời điểm, tần suất, nơi xảy ra, ...)
+- Xác định vấn đề
+- Thêm và check logs
+- Đặt breakpoint
+- Theo dõi biến
+- Kiểm tra luồng thực thi
+- Kiểm tra trạng thái hệ thống máy tính
+- Sửa lỗi và kiểm tra lại
+
+2. Công cụ debug:
+- IDE Debugger
+- Logger
+- Profiler
+- Memory Analyzer
+
+3. Kỹ thuật:
+- Step Over
+- Step Into
+- Step Out
+- Watch Expression
+- Evaluate Expression
+
+## 14. Threading và Multithreading
+
+### Câu hỏi:
+Threading và Multithreading trong Java là gì?
+
+### Trả lời:
+
+1. Thread là gì:
+- Đơn vị thực thi nhỏ nhất trong chương trình
+- Có thể thực hiện song song với các thread khác
+- Chia sẻ tài nguyên với các thread khác trong cùng process
+- Có vòng đời riêng: New, Runnable, Running, Blocked, Dead
+
+2. Multithreading:
+- Cho phép nhiều thread chạy đồng thởi
+- Tận dụng tối đa CPU đa nhân
+- Tăng hiệu suất ứng dụng
+- Tiết kiệm tài nguyên hệ thống
+
+3. Cách tạo thread:
+- Extends Thread:
+    + Kế thừa trực tiếp từ lớp Thread
+    + Ghi đè phương thức run()
+    + Hạn chế vì Java không hỗ trợ đa kế thừa
+
+- Implements Runnable:
+    + Linh hoạt hơn, có thể implements nhiều interface
+    + Tách biệt task và thread
+    + Được khuyến nghị sử dụng
+
+4. Thread Pool:
+- Quản lý và tái sử dụng thread
+- Giới hạn số lượng thread
+- Tránh tạo/hủy thread liên tục
+- Sử dụng ExecutorService
+
+5. Đồng bộ hóa (Synchronization):
+- synchronized keyword:
+    + Đồng bộ method hoặc block
+    + Chỉ cho phép một thread truy cập
+    + Giải quyết race condition
+
+- volatile keyword:
+    + Đảm bảo giá trị biến được cập nhật cho tất cả thread
+    + Không cache giá trị trong thread local
+    + Phù hợp với biến flags
+
+6. Vấn đề phổ biến:
+- Deadlock: 
+    + Hai thread chờ tài nguyên của nhau
+    + Không thread nào có thể tiếp tục
+    
+- Race Condition:
+    + Nhiều thread cùng truy cập shared resource
+    + Kết quả phụ thuộc vào thứ tự thực thi
+
+7. Thread Communication:
+- wait(): Thread chờ đến khi nhận notify
+- notify(): Đánh thức một thread đang wait
+- notifyAll(): Đánh thức tất cả thread đang wait
+- join(): Chờ thread khác kết thúc
+
+## 15. Regex
+
+### Câu hỏi:
+Regex trong Java là gì?
+
+### Trả lời:
+
+1. Khái niệm:
+- Biểu thức chính quy
+- Mô tả mẫu văn bản
+
+## 16. Design Pattern
+
+### Câu hỏi:
+Các design pattern và ý tưởng sử dụng của chúng là gì?
+
+### Trả lời:
+
+1. Creational Patterns:
+- Singleton: đảm bảo 1 class chỉ có một thể hiện
+- Factory: tạo đối tượng qua interface
+- Builder: xây dựng đối tượng phức tạp
+- Prototype: sao chép đối tượng
+
+2. Structural Patterns:
+- Adapter: chuyển đổi giao diện
+- Decorator: thêm chức năng mới cho đối tượng
+- Composite: xử lý cấu trúc cây
+- Facade: đơn giản hóa hệ thống
+
+3. Behavioral Patterns:
+- Observer: quan sát thay đổi
+- Strategy: thay đổi thuật toán
+- Command: đóng gói yêu cầu thành đối tượng
+- Template Method: Định nghĩa khung thuật toán
+
+## 17. Clean Code
+
+### Câu hỏi:
+Các nguyên tắc để clean code?
+
+### Trả lời:
+- Áp dụng SOLID, singleton, factory, builder, Facade.
+- Chia nhỏ phương thức nếu phức tạp.
+- Tên biến, đối tượng, phương thức dễ hiểu, áp dụng các nguyên tắc đặt tên.
+ + Lớp, Interface, Enum: PascalCase.
+ + Biến, đối tượng, phương thức, tham số: camelCase.
+ + Hằng số: IN_HOA.
+ + package: chữ thường.
+
+## 17. Framework và Library
+
+### Câu hỏi:
+Phân biệt Framework và Library?
+
+### Trả lời:
+
+1. Library:
+- Tập hợp các hàm, lớp có sẵn
+- Lập trình viên chủ động gọi Library
+- Không định nghĩa cấu trúc ứng dụng
+- Có thể thay thế dễ dàng
+- Ví dụ: jQuery, Lombok, Log4j
+
+2. Framework:
+- Cung cấp cấu trúc hoàn chỉnh cho ứng dụng
+- Framework điều khiển luồng chương trình
+- Định nghĩa kiến trúc và quy tắc
+- Khó thay thế vì ảnh hưởng toàn bộ ứng dụng
+- Ví dụ: Spring, Hibernate, Struts
+
+## 18. Spring MVC
+
+### Câu hỏi:
+Mô hình SpringMVC là gì?
+
+### Trả lời:
+
+1. Khái niệm:
+- Là một framework trong Spring Framework
+- Xây dựng theo mô hình MVC (Model-View-Controller)
+- Tách biệt logic xử lý, dữ liệu và giao diện
+
+2. Các thành phần:
+- Model: Dữ liệu và xử lý dữ liệu
+- View: Giao diện người dùng
+- Controller: Điều khiển luồng xử lý
+- DispatcherServlet: Điều phối request
+- ViewResolver: Xử lý và trả về view
+
+3. Luồng xử lý:
+- Request → DispatcherServlet
+- DispatcherServlet → Handler Mapping
+- Handler Mapping → Controller
+- Controller → Model và View
+- View → Response
+
+## 19. Spring Boot
+
+### Câu hỏi:
+Springboot là gì? Công dụng của nó đối với lập trình viên?
+
+### Trả lời:
+
+1. Khái niệm:
+- Framework hỗ trợ xây dựng ứng dụng Spring
+- Tự động cấu hình (Auto Configuration)
+- Độc lập (Standalone)
+- Opinionated (có các quy ước mặc định)
+
+2. Công dụng:
+- Giảm thời gian cấu hình
+- Tích hợp nhiều module sẵn có
+- Quản lý dependency dễ dàng
+- Tích hợp server (Tomcat, Jetty)
+- Hot reload với DevTools
+- Tạo ứng dụng nhanh chóng
+
+## 20. Spring Boot Annotations
+
+### Câu hỏi:
+Các annotation quan trọng trong springboot? Đặc điểm của chúng?
+
+### Trả lời:
+
+1. Core Annotations:
+- @SpringBootApplication:
+    + Kết hợp @Configuration, @EnableAutoConfiguration, @ComponentScan
+    + Đánh dấu class chính của ứng dụng
+    
+- @Component:
+    + Đánh dấu class là Spring bean
+    + Class sẽ được quản lý bởi Spring Container
+
+2. Stereotype Annotations:
+- @Controller: Xử lý HTTP requests
+- @Service: Xử lý business logic
+- @Repository: Tương tác với database
+- @RestController: @Controller + @ResponseBody
+
+3. Configuration Annotations:
+- @Configuration: Class cấu hình
+- @EnableAutoConfiguration: Tự động cấu hình
+- @ComponentScan: Quét các component
+
+4. Request Mapping:
+- @RequestMapping: Định tuyến request
+- @GetMapping: HTTP GET request
+- @PostMapping: HTTP POST request
+- @PutMapping: HTTP PUT request
+- @DeleteMapping: HTTP DELETE request
+
+## 21. Bean và Dependency Injection
+
+### Câu hỏi:
+@Bean, Dependency Injection trong Springboot là gì?
+
+### Trả lời:
+
+1. @Bean:
+- Đánh dấu method trả về đối tượng được quản lý bởi Spring
+- Thường dùng trong @Configuration class
+- Có thể cấu hình scope, name, initMethod, destroyMethod
+
+2. Dependency Injection (DI):
+- Kỹ thuật tiêm phụ thuộc vào đối tượng
+- Spring Container quản lý việc tiêm phụ thuộc
+- Giảm sự phụ thuộc giữa các class
+
+3. Các cách Inject:
+- Constructor Injection (Khuyến nghị):
+    + Sử dụng constructor
+    + Đảm bảo tính bất biến
+    + Dễ test
+
+- Setter Injection:
+    + Sử dụng setter method
+    + Có thể thay đổi dependency
+    
+- Field Injection:
+    + Sử dụng @Autowired trực tiếp
+    + Không khuyến khích vì khó test
+
+## 22. Inversion of Control (IOC)
+
+### Câu hỏi:
+IOC là gì? Khi nào nên dùng IOC?
+
+### Trả lời:
+
+1. Khái niệm:
+- Đảo ngược quyền điều khiển
+- Container quản lý vòng đời của đối tượng
+- Tách rời implementation và sử dụng
+
+2. Đặc điểm:
+- Giảm sự phụ thuộc giữa các class
+- Dễ dàng thay đổi implementation
+- Dễ dàng test và bảo trì
+- Tăng tính module hóa
+
+3. Khi nào sử dụng:
+- Ứng dụng có nhiều dependency
+- Cần loose coupling
+- Muốn dễ dàng test
+- Cần tái sử dụng code
+
+## 23. Spring Boot Actuator
+
+### Câu hỏi:
+Các đặc điểm của Spring Boot Actuator, công dụng của nó đối với lập trình viên?
+
+### Trả lời:
+
+1. Đặc điểm:
+- Cung cấp endpoints giám sát
+- Tích hợp sẵn với Spring Boot
+- Có thể tùy chỉnh security
+- Hỗ trợ nhiều format (JSON, XML)
+
+2. Các endpoints quan trọng:
+- /health: Trạng thái ứng dụng
+- /metrics: Thông số hệ thống
+- /info: Thông tin ứng dụng
+- /env: Biến môi trường
+
+3. Công dụng:
+- Giám sát ứng dụng
+- Debug và troubleshoot
+- Quản lý runtime
+- Thu thập metrics
+
+## 24. Form và Data Binding
+
+### Câu hỏi:
+Form, Data Binding là gì?
+
+### Trả lời:
+
+1. Form:
+- Giao diện nhập liệu
+- Xử lý dữ liệu người dùng
+- Validation dữ liệu
+- Hiển thị lỗi
+
+2. Data Binding:
+- Liên kết dữ liệu form với đối tượng
+- Tự động chuyển đổi kiểu dữ liệu
+- Xử lý lỗi binding
+- Hỗ trợ validation
+
+3. Các annotation:
+- @ModelAttribute
+- @Valid
+- @InitBinder
+- @BindingResult
+
+## 25. ORM và Hibernate
+
+### Câu hỏi:
+ORM, Hibernate là gì?
+
+### Trả lời:
+
+1. ORM (Object Relational Mapping):
+- Kỹ thuật chuyển đổi dữ liệu
+- Mapping giữa object và database
+- Tự động tạo/cập nhật database
+- Giảm thiểu SQL thủ công
+
+2. Hibernate:
+- Framework ORM phổ biến
+- Cung cấp JPA implementation
+- Quản lý session và transaction
+- Hỗ trợ cache nhiều cấp
+
+3. Ưu điểm:
+- Giảm code JDBC
+- Tự động tạo SQL
+- Độc lập database
+- Tối ưu hiệu suất
+
+## 26. JPA và Spring Data
+
+### Câu hỏi:
+JPA, Spring Data JPA, Spring Data Repository, transaction là gì?
+
+### Trả lời:
+
+1. JPA (Java Persistence API):
+- Đặc tả standard cho ORM trong Java
+- Định nghĩa cách mapping entity-table
+- Quản lý entity và lifecycle
+- Cung cấp JPQL (Java Persistence Query Language)
+- Các annotation quan trọng:
+    + @Entity: Đánh dấu class là entity
+    + @Table: Chỉ định tên bảng
+    + @Id: Khóa chính
+    + @Column: Chỉ định thuộc tính cột
+    + @OneToMany, @ManyToOne: Quan hệ
+
+2. Spring Data JPA:
+- Module của Spring Framework
+- Đơn giản hóa JPA
+- Tự động tạo repository implementation
+- Hỗ trợ:
+    + Phân trang (Pagination)
+    + Sắp xếp (Sorting)
+    + Auditing
+    + Query methods
+    + Custom queries với @Query
+
+3. Spring Data Repository:
+- CrudRepository:
+    + Các operation CRUD cơ bản
+    + save(), findById(), delete()
+    + count(), existsById()
+
+- PagingAndSortingRepository:
+    + Kế thừa CrudRepository
+    + Hỗ trợ phân trang và sắp xếp
+    + findAll(Pageable), findAll(Sort)
+
+- JpaRepository:
+    + Kế thừa PagingAndSortingRepository
+    + Thêm các method JPA-specific
+    + flush(), saveAndFlush()
+    + deleteInBatch(), deleteAllInBatch()
+
+4. Transaction:
+- ACID Properties:
+    + Atomicity: Tính nguyên tử
+    + Consistency: Tính nhất quán
+    + Isolation: Tính độc lập
+    + Durability: Tính bền vững
+
+- Transaction Management:
+    + @Transactional annotation
+    + Propagation levels
+    + Isolation levels
+    + Rollback rules
+
+- Transaction Propagation:
+    + REQUIRED: Mặc định
+    + REQUIRES_NEW: Tạo transaction mới
+    + SUPPORTS: Sử dụng nếu có
+    + NOT_SUPPORTED: Không sử dụng
+    + MANDATORY: Bắt buộc phải có
+    + NEVER: Không được có
+
+## 27. Validation
+
+### Câu hỏi:
+Validate, validation là gì? Phân biệt?
+
+### Trả lời:
+
+1. Validate:
+- Kiểm tra tính hợp lệ
+- Thực hiện theo business rules
+- Custom validation logic
+- Xử lý trong code
+
+2. Validation:
+- Framework/library hỗ trợ validate
+- Sử dụng annotation
+- Bean Validation (JSR-380)
+- Tự động kiểm tra
+
+3. Các annotation phổ biến:
+- @NotNull
+- @Size
+- @Min/@Max
+- @Pattern
+- @Email
+
+## 28. Session và Cookie
+
+### Câu hỏi:
+Session và cookie là gì? Phân biệt?
+
+### Trả lời:
+
+1. Session:
+- Lưu trữ phía server
+- Tồn tại trong phiên làm việc
+- An toàn hơn cookie
+- Dung lượng lớn hơn
+
+2. Cookie:
+- Lưu trữ phía client
+- Có thể set thời gian tồn tại
+- Dung lượng nhỏ (4KB)
+- Có thể bị chặn/xóa
+
+3. Phân biệt:
+- Vị trí lưu trữ
+- Dung lượng
+- Tính bảo mật
+- Thời gian tồn tại
+
+## 29. Web Service và REST
+
+### Câu hỏi:
+Web Service, RESTful, RESTful API là gì? Phân biệt?
+
+### Trả lời:
+
+1. Web Service:
+- Dịch vụ web độc lập nền tảng
+- Giao tiếp giữa các hệ thống qua mạng
+- Các loại:
+    + SOAP (Simple Object Access Protocol)
+    + REST (Representational State Transfer)
+    + XML-RPC
+    + JSON-RPC
+
+2. RESTful:
+- Kiến trúc phần mềm
+- Các nguyên tắc:
+    + Stateless: Không lưu trạng thái
+    + Client-Server: Tách biệt client và server
+    + Cacheable: Có thể cache
+    + Uniform Interface: Giao diện thống nhất
+    + Layered System: Hệ thống phân lớp
+
+3. RESTful API:
+- HTTP Methods:
+    + GET: Lấy dữ liệu
+    + POST: Tạo mới
+    + PUT: Cập nhật toàn bộ
+    + PATCH: Cập nhật một phần
+    + DELETE: Xóa
+
+- Status Codes:
+    + 2xx: Thành công (200 OK, 201 Created)
+    + 3xx: Chuyển hướng
+    + 4xx: Lỗi client (400 Bad Request, 404 Not Found)
+    + 5xx: Lỗi server
+
+- Best Practices:
+    + Sử dụng danh từ cho endpoints
+    + Phiên bản API
+    + Phân trang và filtering
+    + Xử lý lỗi nhất quán
+    + Documentation đầy đủ
+
+## 30. Spring Security
+
+### Câu hỏi:
+Spring Security, Security Filter Chain, JWT là gì?
+
+### Trả lời:
+
+1. Spring Security:
+- Framework bảo mật cho Spring
+- Tính năng:
+    + Authentication: Xác thực người dùng
+    + Authorization: Phân quyền
+    + Protection against attacks:
+        * CSRF (Cross-site request forgery)
+        * XSS (Cross-site scripting)
+        * Session Fixation
+
+2. Security Filter Chain:
+- Chuỗi các filter xử lý security
+- Thứ tự quan trọng:
+    1. SecurityContextPersistenceFilter
+    2. UsernamePasswordAuthenticationFilter
+    3. BasicAuthenticationFilter
+    4. RememberMeAuthenticationFilter
+    5. ExceptionTranslationFilter
+    6. FilterSecurityInterceptor
+
+3. JWT (JSON Web Token):
+- Cấu trúc:
+    + Header: Thuật toán và loại token
+    + Payload: Claims và data
+    + Signature: Chữ ký số
+
+- Ưu điểm:
+    + Stateless
+    + Có thể chứa thông tin user
+    + Dễ dàng scale
+    + Cross-domain/CORS
+
+- Nhược điểm:
+    + Không thể thu hồi
+    + Size lớn hơn session token
+    + Payload có thể bị decode
+
+- Best Practices:
+    + Sử dụng HTTPS
+    + Thời gian hết hạn ngắn
+    + Refresh token
+    + Validate kỹ payload
+
+    
